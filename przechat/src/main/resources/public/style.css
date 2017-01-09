@@ -16,8 +16,13 @@ body {
 
 input {
     width: 100%;
+
     padding: 5px;
-    margin: 5px 0;
+    /*margin: 5px 0;*/
+}
+
+button{
+    padding: 5px;
 }
 
 button {
@@ -25,27 +30,46 @@ button {
 }
 
 li {
-    margin: 5px 0;
+    /*margin: 5px 0;*/
 }
 
 #chatControls {
     overflow: auto;
-    margin: 0 0 5px 0
+    top: 11px;
 }
 
-#userlist {
+#users {
     position: fixed;
     left: 50%;
     list-style: none;
     margin-left: 250px;
     background: #f0f0f9;
-    padding: 5px 10px;
     width: 150px;
     top: 11px;
 }
 
+#channelBox {
+    position: fixed;
+    right: 50%;
+    list-style: none;
+    width: 300px;
+    margin-right: 250px;
+    background: #f0f0f9;
+    padding: 5px 10px;
+    /*width: 250px;*/
+    top: 11px;
+}
+
+#newChatName{
+    width: 68%;
+}
+
+#newChat{
+    width: 32%;
+}
+
 #chat p {
-    margin: 5px 0;
+    /*margin: 5px 0;*/
     font-weight: 300
 }
 
@@ -72,7 +96,13 @@ li {
 }
 
 @keyframes enter {
-    from { transform: none;        }
-    50%  { transform: scale(1.05); }
-    to   { transform: none;        }
+    from {
+        transform: none;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    to {
+        transform: none;
+    }
 }

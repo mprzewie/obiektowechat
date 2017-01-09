@@ -10,9 +10,19 @@
     <input id="message" placeholder="Type your username">
     <button id="send">Send</button>
 </div>
-<ul id="userlist"> <!-- Built by JS --> </ul>
-<ul id="channelList"><!--Built by JS --></ul>
+<div id="users">
+    Active users:
+    <ul id="userlist"></ul>
+</div>
+
 <div id="chat">    <!-- Built by JS --> </div>
-<script src="websocket.js"></script>
+<div id="channelBox">
+    Available chats:
+    <ul id="channelList"></ul>
+    <input id="newChatName" placeholder="Type the name of new channel">
+    <button id="newChat">New channel</button>
+</div>
+
+<script src="socket.js"></script>
 </body>
 </html>
