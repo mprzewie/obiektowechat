@@ -1,3 +1,4 @@
+//object sent to server
 function message(action, argument) {
     this.action = action;
     this.argument = argument;
@@ -6,6 +7,7 @@ function message(action, argument) {
     }
 }
 
+//adding new user
 function addNewUser() {
     var userName = "";
     while (userName == "") {
@@ -14,32 +16,56 @@ function addNewUser() {
     webSocket.send(new message("login", userName).toString());
 }
 
+function addNewChannel(channelName) {
+    if(channelName!==""){
+        id("newChatName").value=""
+        webSocket.send(new message("newchannel",channelName).toString())
+    }
+}
+//deciding what to do based on messages from server
 function getMsgFromServer(msg) {
     var msg = JSON.parse(msg.data);
     var act=msg.action;
     if (act == "alert") {
         handleAlert(msg.argument)
     } else if(act=="login"){
-        login(msg.user, JSON.parse(msg.argument));
-    } else if(act=="logout"){
+        var lists=JSON.parse(msg.argument)
+        var userslist=lists.users
+        var channelslist=lists.channels
+        login(msg.user, userslist,channelslist)
+    } else if(act=="logout") {
         logout(msg.user, JSON.parse(msg.argument))
+    }else if (act=="say"){
+        say(msg.user, msg.argument);
+    }else if(act=="newchannel"){
+        newchannel(msg.user, msg.argument);
     }
 }
 
+//handling alerts from server
 function handleAlert(alrt) {
     if (alrt == "usernameTaken") {
         alert("This username is already taken!");
         addNewUser();
     }
+    else {
+        alert(alrt);
+    }
 }
 
-function login(username, userslist) {
+//handling logins from server
+function login(username, userslist, channelslist) {
     id("userlist").innerHTML = "";
     userslist.forEach(function (user) {
         insert("userlist", "<li>" + user + "</li>");
-    })
+    });
+    id("channellist").innerHTML="";
+    channelslist.forEach(function (channel) {
+        insert("channellist", "<li>" + channel + "</li>");
+    });
 }
 
+//handling logouts from server
 function logout(username, userslist) {
     id("userlist").innerHTML = "";
     userslist.forEach(function (user) {
@@ -47,6 +73,22 @@ function logout(username, userslist) {
     })
 }
 
+//handling new messages in chat from server
+function say(username, text){
+    insert("msgslist","<li>"+username+": "+text+"</li>")
+}
+
+function newchannel(username, channelname) {
+    insert("channellist","<li>"+channelname+"</li>")
+}
+
+//Send a message if it's not empty, then clear the input field
+function sendMessage(msg) {
+    if (msg !== "") {
+        webSocket.send(new message("say",msg).toString());
+        id("message").value = "";
+    }
+}
 
 //Establish the WebSocket connection and set up event handlers
 var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/chat/");
@@ -74,14 +116,18 @@ id("message").addEventListener("keypress", function (e) {
     }
 });
 
+//Create new channel if "New channel" is clicked"
+id("newChat").addEventListener("click", function () {
+    addNewChannel(id("newChatName").value);
+});
 
-//Send a message if it's not empty, then clear the input field
-function sendMessage(message) {
-    if (message !== "") {
-        //webSocket.send(message);
-        id("message").value = "";
+//Create new channel if enter is pressed in the input field
+id("newChatName").addEventListener("keypress", function (e) {
+    if (e.keyCode === 13) {
+        addNewChannel(e.target.value);
     }
-}
+});
+
 
 //Update the chat-panel, and the list of connected users
 function updateChat(msg) {

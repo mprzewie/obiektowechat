@@ -17,8 +17,9 @@ import static spark.Spark.webSocket;
 public class Chat {
 
     static Map<Session, String> userUsernameMap = new ConcurrentHashMap<>();
-    static Map<String, Channel> channels=new ConcurrentHashMap<>();
+    static Map<Session, Channel> channels=new ConcurrentHashMap<>();
     static ExecutorService pool= Executors.newFixedThreadPool(50);
+
 
     public static void main(String[] args) {
         staticFileLocation("/public"); //index.html is served at localhost:4567 (default port)
@@ -53,8 +54,17 @@ public class Chat {
             userUsernameMap.put(session, username);
             JSONArray usersList=new JSONArray();
             userUsernameMap.values().forEach(name -> usersList.put(name));
+            JSONArray channelsList=new JSONArray();
+            channels.values().forEach(channel -> channelsList.put(channel.getName()));
+            JSONObject lists=new JSONObject();
+            try{
+                lists.put("users",usersList);
+                lists.put("channels",channelsList);
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
             userUsernameMap.keySet().parallelStream().
-                    forEach(s -> Chat.narrowcast(s, jsonMessage(username, "login", usersList.toString()).toString()));
+                    forEach(s -> Chat.narrowcast(s, jsonMessage(username, "login", lists.toString()).toString()));
         }
     }
 
@@ -62,6 +72,7 @@ public class Chat {
         String username=userUsernameMap.get(session);
         System.out.println("Good riddance, "+username);
         userUsernameMap.remove(session);
+        channels.remove(session);
         JSONArray usersList=new JSONArray();
         userUsernameMap.values().forEach(name -> usersList.put(name));
         userUsernameMap.keySet().parallelStream().
@@ -69,9 +80,29 @@ public class Chat {
 
     }
 
+    static synchronized void say(Session session, String message){
+        Channel targetChannel=channels.get(session);
+        try{
+            channels.get(session).acceptMessage(session,message);
+        } catch (NullPointerException e){
+            Chat.narrowcast(session,
+                    jsonMessage(userUsernameMap.get(session), "alert", "You must choose channel first!")
+                            .toString());
+        }
+
+    }
+
+    static synchronized void newChannel(Session session, String channelName){
+        Channel channel=new Channel(channelName);
+        channel.addUser(session);
+        channels.put(session,channel);
+        userUsernameMap.keySet().parallelStream().forEach(u -> narrowcast(u,
+                jsonMessage(userUsernameMap.get(u), "newchannel", channelName).toString()));
+    }
 
 
-    private static JSONObject jsonMessage(String username, String action, String argument) {
+
+    public static JSONObject jsonMessage(String username, String action, String argument) {
         JSONObject result = new JSONObject();
         try {
             result.put("action", action);

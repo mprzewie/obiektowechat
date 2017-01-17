@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class ChatBot implements IChannelBot {
 
     @Override
-    public String respond(JSONObject message) {
+    public String respond(String message) {
         return null;
     }
 }
