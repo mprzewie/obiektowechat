@@ -61,7 +61,7 @@ function login(username, userslist, channelslist) {
     });
     id("channellist").innerHTML="";
     channelslist.forEach(function (channel) {
-        insert("channellist", "<li>" + channel + "</li>");
+        id("channellist").appendChild(channelButton(channel))
     });
 }
 
@@ -79,7 +79,7 @@ function say(username, text){
 }
 
 function newchannel(username, channelname) {
-    insert("channellist","<li>"+channelname+"</li>")
+    id("channellist").appendChild(channelButton(channelname))
 }
 
 //Send a message if it's not empty, then clear the input field
@@ -88,6 +88,25 @@ function sendMessage(msg) {
         webSocket.send(new message("say",msg).toString());
         id("message").value = "";
     }
+}
+
+//Join other channel
+function joinChannel(channelname) {
+    webSocket.send(new message("joinchannel",channelname))
+
+}
+
+//Button enabling joining a channel
+function channelButton(channelname) {
+    var elmnt=document.createElement("li");
+    var button=document.createElement("button");
+    var text=document.createTextNode(channelname);
+    button.appendChild(text);
+    button.addEventListener("click", function () {
+        joinChannel(channelname)
+    });
+    elmnt.appendChild(button)
+    return elmnt
 }
 
 //Establish the WebSocket connection and set up event handlers

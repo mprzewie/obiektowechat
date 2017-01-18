@@ -35,6 +35,8 @@ public class SocketHandler {
                 Chat.say(session, json.getString("argument"));
             } else if(action.equals("newchannel")){
                 Chat.newChannel(session, json.getString("argument"));
+            } else if(action.equals("joinchannel")){
+                Chat.joinChannel(session, json.getString("argument"));
             }
         } catch (JSONException e) {
             System.out.println("Send me a proper JSON, not some bullshit like:");

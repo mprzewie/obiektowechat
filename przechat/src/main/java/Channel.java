@@ -1,10 +1,6 @@
 import org.eclipse.jetty.websocket.api.Session;
-import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
-import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
-import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -35,6 +31,7 @@ public class Channel {
             users.parallelStream().forEach(u ->
                     Chat.narrowcast(u,Chat.jsonMessage(Chat.userUsernameMap.get(u),"joinchannel", name).toString()));
         }
+        System.out.println(Chat.userUsernameMap.get(user)+" joins: "+name);
     }
 
     public void removeUser(Session user){
@@ -43,11 +40,13 @@ public class Channel {
             users.parallelStream().forEach(u ->
                     Chat.narrowcast(u,Chat.jsonMessage(Chat.userUsernameMap.get(u),"exitchannel", name).toString()));
         }
+        System.out.println(Chat.userUsernameMap.get(user)+" quits: "+name);
     }
 
     public void acceptMessage(Session user, String message){
+        System.out.println(Chat.userUsernameMap.get(user)+" in "+name+": "+message);
         users.parallelStream().forEach(u -> Chat.narrowcast(u,
-                Chat.jsonMessage(Chat.userUsernameMap.get(u),"say",message).toString()));
+                Chat.jsonMessage(Chat.userUsernameMap.get(user),"say",message).toString()));
         if(bot!=null){
             bot.respond(message);
         }

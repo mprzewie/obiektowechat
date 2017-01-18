@@ -17,7 +17,7 @@ import static spark.Spark.webSocket;
 public class Chat {
 
     static Map<Session, String> userUsernameMap = new ConcurrentHashMap<>();
-    static Map<Session, Channel> channels=new ConcurrentHashMap<>();
+    static Map<Session, Channel> channels =new ConcurrentHashMap<>();
     static ExecutorService pool= Executors.newFixedThreadPool(50);
 
 
@@ -81,7 +81,7 @@ public class Chat {
     }
 
     static synchronized void say(Session session, String message){
-        Channel targetChannel=channels.get(session);
+        Channel targetChannel= channels.get(session);
         try{
             channels.get(session).acceptMessage(session,message);
         } catch (NullPointerException e){
@@ -98,6 +98,12 @@ public class Chat {
         channels.put(session,channel);
         userUsernameMap.keySet().parallelStream().forEach(u -> narrowcast(u,
                 jsonMessage(userUsernameMap.get(u), "newchannel", channelName).toString()));
+    }
+
+    static synchronized void joinChannel(Session session, String channelName){
+        Channel targetChannel=channels.values().parallelStream().filter(channel -> channel.getName().equals(channelName)).findFirst().get();
+        targetChannel.addUser(session);
+
     }
 
 
