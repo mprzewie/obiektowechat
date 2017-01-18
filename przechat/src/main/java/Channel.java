@@ -19,17 +19,15 @@ public class Channel {
     }
 
     public void addUser(Session user){
-        synchronized (users){
-            if(Chat.channels.keySet().contains(user)){
-                Chat.channels.get(user).removeUser(user);
-                Chat.channels.replace(user, this);
-            } else {
-                Chat.channels.put(user, this);
+        synchronized (users) {
+            if(!users.contains(user)){
+                Chat.channels.parallelStream().
+                        filter(ch -> ch.getUsers().contains(user)).
+                        findFirst().ifPresent(chan -> chan.removeUser(user));
+                users.add(user);
+                users.parallelStream().forEach(u ->
+                        Chat.narrowcast(u, Chat.jsonMessage(Chat.userUsernameMap.get(user), "joinchannel", name).toString()));
             }
-
-            users.add(user);
-            users.parallelStream().forEach(u ->
-                    Chat.narrowcast(u,Chat.jsonMessage(Chat.userUsernameMap.get(u),"joinchannel", name).toString()));
         }
         System.out.println(Chat.userUsernameMap.get(user)+" joins: "+name);
     }

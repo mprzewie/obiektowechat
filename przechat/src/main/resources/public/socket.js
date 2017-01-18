@@ -39,6 +39,8 @@ function getMsgFromServer(msg) {
         say(msg.user, msg.argument);
     }else if(act=="newchannel"){
         newchannel(msg.user, msg.argument);
+    }else if(act=="joinchannel"){
+        say(msg.user, "joined channel "+msg.argument)
     }
 }
 
@@ -47,6 +49,8 @@ function handleAlert(alrt) {
     if (alrt == "usernameTaken") {
         alert("This username is already taken!");
         addNewUser();
+    } else if(alrt=="channelExists"){
+        alert("This channel already exists!")
     }
     else {
         alert(alrt);

@@ -4,7 +4,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.concurrent.*;
 
 import static spark.Spark.init;
@@ -17,7 +19,7 @@ import static spark.Spark.webSocket;
 public class Chat {
 
     static Map<Session, String> userUsernameMap = new ConcurrentHashMap<>();
-    static Map<Session, Channel> channels =new ConcurrentHashMap<>();
+    static ArrayList<Channel> channels=new ArrayList<Channel>();
     static ExecutorService pool= Executors.newFixedThreadPool(50);
 
 
@@ -55,7 +57,7 @@ public class Chat {
             JSONArray usersList=new JSONArray();
             userUsernameMap.values().forEach(name -> usersList.put(name));
             JSONArray channelsList=new JSONArray();
-            channels.values().forEach(channel -> channelsList.put(channel.getName()));
+            channels.parallelStream().forEach(channel -> channelsList.put(channel.getName()));
             JSONObject lists=new JSONObject();
             try{
                 lists.put("users",usersList);
@@ -81,9 +83,9 @@ public class Chat {
     }
 
     static synchronized void say(Session session, String message){
-        Channel targetChannel= channels.get(session);
+        Channel targetChannel= channels.parallelStream().filter(ch -> ch.getUsers().contains(session)).findFirst().get();
         try{
-            channels.get(session).acceptMessage(session,message);
+            targetChannel.acceptMessage(session,message);
         } catch (NullPointerException e){
             Chat.narrowcast(session,
                     jsonMessage(userUsernameMap.get(session), "alert", "You must choose channel first!")
@@ -93,16 +95,26 @@ public class Chat {
     }
 
     static synchronized void newChannel(Session session, String channelName){
-        Channel channel=new Channel(channelName);
-        channel.addUser(session);
-        channels.put(session,channel);
-        userUsernameMap.keySet().parallelStream().forEach(u -> narrowcast(u,
-                jsonMessage(userUsernameMap.get(u), "newchannel", channelName).toString()));
+        if(channels.parallelStream().anyMatch(ch -> ch.getName().equals(channelName))){
+            Chat.narrowcast(session,
+                    jsonMessage(channelName, "alert", "channelExists")
+                            .toString());
+        }else{
+            Channel channel=new Channel(channelName);
+            channel.addUser(session);
+            channels.add(channel);
+            userUsernameMap.keySet().parallelStream().forEach(u -> narrowcast(u,
+                    jsonMessage(userUsernameMap.get(u), "newchannel", channelName).toString()));
+        }
+
     }
 
     static synchronized void joinChannel(Session session, String channelName){
-        Channel targetChannel=channels.values().parallelStream().filter(channel -> channel.getName().equals(channelName)).findFirst().get();
-        targetChannel.addUser(session);
+        System.out.println(channelName);
+        channels.parallelStream().filter(ch -> ch.getName().equals(channelName)).findFirst().
+                    ifPresent(chan -> chan.addUser(session));
+
+
 
     }
 
