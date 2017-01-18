@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Channel.java" afterPath="$PROJECT_DIR$/src/main/java/Channel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Chat.java" afterPath="$PROJECT_DIR$/src/main/java/Chat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/socket.js" afterPath="$PROJECT_DIR$/src/main/resources/public/socket.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,16 +32,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Chat.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Chat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Chat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="111" column="37" lean-forward="false" selection-start-line="111" selection-start-column="37" selection-end-line="111" selection-end-column="37" />
+            <state relative-caret-position="223">
+              <caret line="85" column="23" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="23" />
               <folding>
-                <element signature="e#596#605#0" expanded="true" />
+                <element signature="e#623#632#0" expanded="true" />
                 <element signature="method#narrowcast#0;class#Chat#0" expanded="false" />
+                <element signature="method#login#0;class#Chat#0" expanded="false" />
                 <element signature="method#logout#0;class#Chat#0" expanded="false" />
-                <element signature="method#say#0;class#Chat#0" expanded="false" />
+                <element signature="class#3095:3717" expanded="false" />
                 <element signature="method#newChannel#0;class#Chat#0" expanded="false" />
                 <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
               </folding>
@@ -50,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Channel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Channel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Channel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="21" />
+            <state relative-caret-position="280">
+              <caret line="51" column="46" lean-forward="false" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -73,39 +73,9 @@
       <file leaf-file-name="SocketHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SocketHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
+            <state relative-caret-position="506">
               <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="socket.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/public/socket.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="42" column="53" lean-forward="true" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
-              <folding>
-                <element signature="n#!!block;n#message#0" expanded="false" />
-                <element signature="n#!!block;n#addNewUser#0" expanded="false" />
-                <element signature="n#!!block;n#addNewChannel#0" expanded="false" />
-                <element signature="n#!!block;n#handleAlert#0" expanded="false" />
-                <element signature="e#1524#1577#0" expanded="false" />
-                <element signature="n#!!block;n#login#0" expanded="false" />
-                <element signature="n#!!block;n#logout#0" expanded="false" />
-                <element signature="n#!!block;n#say#0" expanded="false" />
-                <element signature="n#!!block;n#newchannel#0" expanded="false" />
-                <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-                <element signature="n#!!block;n#joinChannel#0" expanded="false" />
-                <element signature="n#!!block;n#channelButton#0" expanded="false" />
-                <element signature="e#3356#3377#0" expanded="false" />
-                <element signature="e#3415#3445#0" expanded="false" />
-                <element signature="e#3479#3571#0" expanded="false" />
-                <element signature="e#3660#3701#0" expanded="false" />
-                <element signature="e#3815#3889#0" expanded="false" />
-                <element signature="e#3995#4042#0" expanded="false" />
-                <element signature="e#4166#4242#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -159,8 +129,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/public/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/SocketHandler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/public/socket.js" />
-        <option value="$PROJECT_DIR$/src/main/java/Channel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Chat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Channel.java" />
       </list>
     </option>
   </component>
@@ -715,7 +685,7 @@
       <workItem from="1484040370298" duration="71000" />
       <workItem from="1484126302539" duration="7856000" />
       <workItem from="1484596256241" duration="620000" />
-      <workItem from="1484687753232" duration="17251000" />
+      <workItem from="1484687753232" duration="20075000" />
     </task>
     <task id="LOCAL-00001" summary="initial work">
       <created>1483750676308</created>
@@ -766,11 +736,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484700435639</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="joining channels which were left empty by their users">
+      <created>1484780320774</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1484780320774</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46814000" />
+    <option name="totallyTimeSpent" value="49638000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -795,7 +772,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46432492" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32491767" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -861,7 +838,8 @@
     <MESSAGE value="logout" />
     <MESSAGE value="adding channels and writing messages in the channels" />
     <MESSAGE value="joining channels" />
-    <option name="LAST_COMMIT_MESSAGE" value="joining channels" />
+    <MESSAGE value="joining channels which were left empty by their users" />
+    <option name="LAST_COMMIT_MESSAGE" value="joining channels which were left empty by their users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -879,10 +857,11 @@
         <state relative-caret-position="638">
           <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
           <folding>
-            <element signature="e#596#605#0" expanded="true" />
+            <element signature="e#623#632#0" expanded="true" />
             <element signature="method#narrowcast#0;class#Chat#0" expanded="false" />
+            <element signature="method#login#0;class#Chat#0" expanded="false" />
             <element signature="method#logout#0;class#Chat#0" expanded="false" />
-            <element signature="method#say#0;class#Chat#0" expanded="false" />
+            <element signature="class#3095:3717" expanded="false" />
             <element signature="method#newChannel#0;class#Chat#0" expanded="false" />
             <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
           </folding>
@@ -897,10 +876,10 @@
             <element signature="n#!!block;n#message#0" expanded="false" />
             <element signature="n#!!block;n#addNewUser#0" expanded="false" />
             <element signature="n#!!block;n#addNewChannel#0" expanded="false" />
+            <element signature="n#!!block;n#getMsgFromServer#0" expanded="false" />
             <element signature="n#!!block;n#handleAlert#0" expanded="false" />
             <element signature="e#1524#1577#0" expanded="false" />
             <element signature="n#!!block;n#login#0" expanded="false" />
-            <element signature="n#!!block;n#logout#0" expanded="false" />
             <element signature="n#!!block;n#say#0" expanded="false" />
             <element signature="n#!!block;n#newchannel#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
@@ -930,10 +909,11 @@
         <state relative-caret-position="522">
           <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
           <folding>
-            <element signature="e#596#605#0" expanded="true" />
+            <element signature="e#623#632#0" expanded="true" />
             <element signature="method#narrowcast#0;class#Chat#0" expanded="false" />
+            <element signature="method#login#0;class#Chat#0" expanded="false" />
             <element signature="method#logout#0;class#Chat#0" expanded="false" />
-            <element signature="method#say#0;class#Chat#0" expanded="false" />
+            <element signature="class#3095:3717" expanded="false" />
             <element signature="method#newChannel#0;class#Chat#0" expanded="false" />
             <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
           </folding>
@@ -948,10 +928,10 @@
             <element signature="n#!!block;n#message#0" expanded="false" />
             <element signature="n#!!block;n#addNewUser#0" expanded="false" />
             <element signature="n#!!block;n#addNewChannel#0" expanded="false" />
+            <element signature="n#!!block;n#getMsgFromServer#0" expanded="false" />
             <element signature="n#!!block;n#handleAlert#0" expanded="false" />
             <element signature="e#1524#1577#0" expanded="false" />
             <element signature="n#!!block;n#login#0" expanded="false" />
-            <element signature="n#!!block;n#logout#0" expanded="false" />
             <element signature="n#!!block;n#say#0" expanded="false" />
             <element signature="n#!!block;n#newchannel#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
@@ -1008,26 +988,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SocketHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="42" column="53" lean-forward="true" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+        <state relative-caret-position="61">
+          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding>
             <element signature="n#!!block;n#message#0" expanded="false" />
             <element signature="n#!!block;n#addNewUser#0" expanded="false" />
             <element signature="n#!!block;n#addNewChannel#0" expanded="false" />
+            <element signature="n#!!block;n#getMsgFromServer#0" expanded="false" />
             <element signature="n#!!block;n#handleAlert#0" expanded="false" />
             <element signature="e#1524#1577#0" expanded="false" />
             <element signature="n#!!block;n#login#0" expanded="false" />
-            <element signature="n#!!block;n#logout#0" expanded="false" />
             <element signature="n#!!block;n#say#0" expanded="false" />
             <element signature="n#!!block;n#newchannel#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
@@ -1044,26 +1016,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Channel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SocketHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="21" />
+        <state relative-caret-position="506">
+          <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Chat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="111" column="37" lean-forward="false" selection-start-line="111" selection-start-column="37" selection-end-line="111" selection-end-column="37" />
+        <state relative-caret-position="223">
+          <caret line="85" column="23" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="23" />
           <folding>
-            <element signature="e#596#605#0" expanded="true" />
+            <element signature="e#623#632#0" expanded="true" />
             <element signature="method#narrowcast#0;class#Chat#0" expanded="false" />
+            <element signature="method#login#0;class#Chat#0" expanded="false" />
             <element signature="method#logout#0;class#Chat#0" expanded="false" />
-            <element signature="method#say#0;class#Chat#0" expanded="false" />
+            <element signature="class#3095:3717" expanded="false" />
             <element signature="method#newChannel#0;class#Chat#0" expanded="false" />
             <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Channel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="51" column="46" lean-forward="false" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>

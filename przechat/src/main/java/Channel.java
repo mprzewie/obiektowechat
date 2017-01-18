@@ -43,6 +43,11 @@ public class Channel {
 
     public void acceptMessage(Session user, String message){
         System.out.println(Chat.userUsernameMap.get(user)+" in "+name+": "+message);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         users.parallelStream().forEach(u -> Chat.narrowcast(u,
                 Chat.jsonMessage(Chat.userUsernameMap.get(user),"say",message).toString()));
         if(bot!=null){

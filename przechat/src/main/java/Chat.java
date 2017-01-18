@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.concurrent.*;
 
 import static spark.Spark.init;
@@ -83,14 +84,21 @@ public class Chat {
     }
 
     static synchronized void say(Session session, String message){
-        Channel targetChannel= channels.parallelStream().filter(ch -> ch.getUsers().contains(session)).findFirst().get();
-        try{
-            targetChannel.acceptMessage(session,message);
-        } catch (NullPointerException e){
-            Chat.narrowcast(session,
-                    jsonMessage(userUsernameMap.get(session), "alert", "You must choose channel first!")
-                            .toString());
-        }
+        pool.execute(new Runnable() {
+            @Override
+            public void run() {
+                Optional<Channel> targetChannel= channels.parallelStream().
+                            filter(ch -> ch.getUsers().contains(session)).findFirst();
+                if(targetChannel.isPresent()){
+                    targetChannel.get().acceptMessage(session,message);
+                }else {
+                    Chat.narrowcast(session,
+                            jsonMessage(userUsernameMap.get(session), "alert", "You must choose channel first!")
+                                    .toString());
+                }
+            }
+        });
+
 
     }
 
