@@ -22,6 +22,7 @@ public class Chat {
     static Map<Session, String> userUsernameMap = new ConcurrentHashMap<>();
     static ArrayList<Channel> channels=new ArrayList<Channel>();
     static ExecutorService pool= Executors.newFixedThreadPool(50);
+    static ArrayList<Person> people=new ArrayList<Person>();
 
 
     public static void main(String[] args) {
@@ -34,10 +35,10 @@ public class Chat {
      * >Michał Grabowski: Bo 'broadcast' to jest generalnie do wszystkich.
      * >Ja:
      */
-    public static void narrowcast(Session user, String msg){
+    public static void narrowcast(Person user, String msg){
         synchronized (user){
             try {
-                user.getRemote().sendString(msg);
+                user.getSession().getRemote().sendString(msg);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -46,18 +47,20 @@ public class Chat {
     }
 
     static synchronized void login(Session session, String username) {
-        if (userUsernameMap.values().contains(username)) {
-            Chat.narrowcast(session,
-                    jsonMessage(username, "alert", "usernameTaken")
-                            .toString());
-        } else if (username.equals("null")) {
+        Person person=new Person(session,username);
+        if(person.getUsername().equals("null")){
             session.close();
-        } else {
-            System.out.println("New user: " + username);
-            userUsernameMap.put(session, username);
+
+        } else if(people.parallelStream().anyMatch(p -> p.getUsername().equals(username))){
+            narrowcast(person, jsonMessage(username, "alert", "usernameTaken")
+                    .toString());
+        }else {
+            System.out.println("New user: " +person.getUsername());
+            people.add(person);
             JSONArray usersList=new JSONArray();
-            userUsernameMap.values().forEach(name -> usersList.put(name));
             JSONArray channelsList=new JSONArray();
+            people.parallelStream().forEach(p -> usersList.put(p.getUsername()));
+
             channels.parallelStream().forEach(channel -> channelsList.put(channel.getName()));
             JSONObject lists=new JSONObject();
             try{
@@ -66,53 +69,36 @@ public class Chat {
             } catch (JSONException e){
                 e.printStackTrace();
             }
-            userUsernameMap.keySet().parallelStream().
-                    forEach(s -> Chat.narrowcast(s, jsonMessage(username, "login", lists.toString()).toString()));
+            people.parallelStream().forEach(p -> narrowcast(p,jsonMessage(username, "login", lists.toString()).toString()));
         }
     }
 
-    static synchronized void logout(Session session){
-        String username=userUsernameMap.get(session);
-        System.out.println("Good riddance, "+username);
-        userUsernameMap.remove(session);
-        channels.remove(session);
-        JSONArray usersList=new JSONArray();
-        userUsernameMap.values().forEach(name -> usersList.put(name));
-        userUsernameMap.keySet().parallelStream().
-                forEach(s -> Chat.narrowcast(s, jsonMessage(username, "logout", usersList.toString()).toString()));
-
+    static synchronized void logout(Session session) {
+        people.parallelStream().filter(p -> p.getSession().equals(session)).findAny().
+                ifPresent(p -> {
+                    System.out.println("Good riddance, " + p.getUsername());
+                    people.remove(p);
+                    JSONArray usersList = new JSONArray();
+                    people.parallelStream().forEach(pers -> usersList.put(pers.getUsername()));
+                    people.parallelStream().forEach(pers -> narrowcast(p, jsonMessage(p.getUsername(), "logout", usersList.toString()).toString()));
+                });
     }
 
-    static synchronized void say(Session session, String message){
-        pool.execute(new Runnable() {
-            @Override
-            public void run() {
-                Optional<Channel> targetChannel= channels.parallelStream().
-                            filter(ch -> ch.getUsers().contains(session)).findFirst();
-                if(targetChannel.isPresent()){
-                    targetChannel.get().acceptMessage(session,message);
-                }else {
-                    Chat.narrowcast(session,
-                            jsonMessage(userUsernameMap.get(session), "alert", "You must choose channel first!")
-                                    .toString());
-                }
-            }
-        });
-
-
-    }
 
     static synchronized void newChannel(Session session, String channelName){
+        Person person=find(session);
+        System.out.println(person.getUsername() + " creates channel "+channelName);
         if(channels.parallelStream().anyMatch(ch -> ch.getName().equals(channelName))){
-            Chat.narrowcast(session,
+            Chat.narrowcast(person,
                     jsonMessage(channelName, "alert", "channelExists")
                             .toString());
         }else{
             Channel channel=new Channel(channelName);
-            channel.addUser(session);
+            channel.addUser(person);
             channels.add(channel);
-            userUsernameMap.keySet().parallelStream().forEach(u -> narrowcast(u,
-                    jsonMessage(userUsernameMap.get(u), "newchannel", channelName).toString()));
+            channel.addObserver(new Bot());
+            people.parallelStream().forEach(p -> narrowcast(p,
+                    jsonMessage(person.getUsername(), "newchannel", channelName).toString()));
         }
 
     }
@@ -120,13 +106,12 @@ public class Chat {
     static synchronized void joinChannel(Session session, String channelName){
         System.out.println(channelName);
         channels.parallelStream().filter(ch -> ch.getName().equals(channelName)).findFirst().
-                    ifPresent(chan -> chan.addUser(session));
-
-
-
+                    ifPresent(chan -> chan.addUser(find(session)));
     }
 
-
+    public static Person find(Session session) throws NoSuchElementException{
+        return people.parallelStream().filter(p->p.getSession().equals(session)).findFirst().get();
+    }
 
     public static JSONObject jsonMessage(String username, String action, String argument) {
         JSONObject result = new JSONObject();

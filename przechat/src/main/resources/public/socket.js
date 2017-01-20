@@ -40,6 +40,7 @@ function getMsgFromServer(msg) {
     }else if(act=="newchannel"){
         newchannel(msg.user, msg.argument);
     }else if(act=="joinchannel"){
+        console.log(msg.user, "joined channel "+msg.argument)
         say(msg.user, "joined channel "+msg.argument)
     }
 }
@@ -51,6 +52,8 @@ function handleAlert(alrt) {
         addNewUser();
     } else if(alrt=="channelExists"){
         alert("This channel already exists!")
+    } else if(alrt=="noChannel"){
+        alert("You must choose or create a channel first!")
     }
     else {
         alert(alrt);

@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06398586-209c-4077-aa71-0d8f1ecc8474" name="Default" comment="">
+    <list default="true" id="06398586-209c-4077-aa71-0d8f1ecc8474" name="Default" comment="sending messages is now parallel">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ABot.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Person.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ChatBot.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/IChannelBot.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Channel.java" afterPath="$PROJECT_DIR$/src/main/java/Channel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Chat.java" afterPath="$PROJECT_DIR$/src/main/java/Chat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/SocketHandler.java" afterPath="$PROJECT_DIR$/src/main/java/SocketHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/socket.js" afterPath="$PROJECT_DIR$/src/main/resources/public/socket.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,40 +39,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Chat.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Chat.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Chat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="85" column="23" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="23" />
+            <state relative-caret-position="275">
+              <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
               <folding>
-                <element signature="e#623#632#0" expanded="true" />
-                <element signature="method#narrowcast#0;class#Chat#0" expanded="false" />
-                <element signature="method#login#0;class#Chat#0" expanded="false" />
-                <element signature="method#logout#0;class#Chat#0" expanded="false" />
-                <element signature="class#3095:3717" expanded="false" />
-                <element signature="method#newChannel#0;class#Chat#0" expanded="false" />
+                <element signature="e#752#760#0" expanded="true" />
                 <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Channel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Channel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Channel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="51" column="46" lean-forward="false" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+            <state relative-caret-position="572">
+              <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#446#447#0" expanded="true" />
+                <element signature="e#478#479#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ABot.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ABot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#213#214#0" expanded="true" />
+                <element signature="e#238#239#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bot.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Bot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IChannelBot.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/IChannelBot.java">
+      <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="251">
+              <caret line="32" column="90" lean-forward="false" selection-start-line="32" selection-start-column="90" selection-end-line="32" selection-end-column="90" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1078#1079#0" expanded="true" />
+                <element signature="e#1109#1110#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="socket.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/public/socket.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+              <folding>
+                <element signature="n#!!block;n#addNewUser#0" expanded="false" />
+                <element signature="n#!!block;n#addNewChannel#0" expanded="false" />
+                <element signature="n#!!block;n#getMsgFromServer#0" expanded="false" />
+                <element signature="n#!!block;n#login#0" expanded="false" />
+                <element signature="n#!!block;n#say#0" expanded="false" />
+                <element signature="n#!!block;n#newchannel#0" expanded="false" />
+                <element signature="n#!!block;n#sendMessage#0" expanded="false" />
+                <element signature="n#!!block;n#joinChannel#0" expanded="false" />
+                <element signature="n#!!block;n#channelButton#0" expanded="false" />
+                <element signature="e#3512#3533#0" expanded="false" />
+                <element signature="e#3571#3601#0" expanded="false" />
+                <element signature="e#3635#3727#0" expanded="false" />
+                <element signature="e#3816#3857#0" expanded="false" />
+                <element signature="e#3971#4045#0" expanded="false" />
+                <element signature="e#4151#4198#0" expanded="false" />
+                <element signature="e#4322#4398#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,8 +134,8 @@
       <file leaf-file-name="SocketHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SocketHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
+            <state relative-caret-position="716">
+              <caret line="41" column="43" lean-forward="false" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -83,7 +144,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
+            <state relative-caret-position="528">
               <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
               <folding />
             </state>
@@ -124,13 +185,19 @@
         <option value="$PROJECT_DIR$/src/main/resources/public/loginsocket.js" />
         <option value="$PROJECT_DIR$/src/main/resources/public/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/ChatChannel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/IChannelBot.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ChatBot.java" />
         <option value="$PROJECT_DIR$/src/main/resources/public/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/SocketHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/public/socket.js" />
-        <option value="$PROJECT_DIR$/src/main/java/Chat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/IChannelBot.java" />
         <option value="$PROJECT_DIR$/src/main/java/Channel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ChatBot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AChatCbot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AChatBot.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/socket.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ABot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Chat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot.java" />
       </list>
     </option>
   </component>
@@ -176,9 +243,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -255,6 +321,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -521,6 +588,7 @@
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
       <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -642,6 +710,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -685,7 +759,8 @@
       <workItem from="1484040370298" duration="71000" />
       <workItem from="1484126302539" duration="7856000" />
       <workItem from="1484596256241" duration="620000" />
-      <workItem from="1484687753232" duration="20075000" />
+      <workItem from="1484687753232" duration="21348000" />
+      <workItem from="1484902972940" duration="12735000" />
     </task>
     <task id="LOCAL-00001" summary="initial work">
       <created>1483750676308</created>
@@ -743,11 +818,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484780320774</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="sending messages is now parallel">
+      <created>1484783137036</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1484783137036</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49638000" />
+    <option name="totallyTimeSpent" value="63646000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -760,12 +842,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711306" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -777,9 +859,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15104167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15104167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -791,6 +872,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -839,11 +921,12 @@
     <MESSAGE value="adding channels and writing messages in the channels" />
     <MESSAGE value="joining channels" />
     <MESSAGE value="joining channels which were left empty by their users" />
-    <option name="LAST_COMMIT_MESSAGE" value="joining channels which were left empty by their users" />
+    <MESSAGE value="sending messages is now parallel" />
+    <option name="LAST_COMMIT_MESSAGE" value="sending messages is now parallel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -854,15 +937,57 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/Chat.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="85" column="23" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="23" />
+          <folding>
+            <element signature="e#752#760#0" expanded="true" />
+            <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Channel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/IChannelBot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SocketHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
           <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
           <folding>
-            <element signature="e#623#632#0" expanded="true" />
-            <element signature="method#narrowcast#0;class#Chat#0" expanded="false" />
-            <element signature="method#login#0;class#Chat#0" expanded="false" />
-            <element signature="method#logout#0;class#Chat#0" expanded="false" />
-            <element signature="class#3095:3717" expanded="false" />
-            <element signature="method#newChannel#0;class#Chat#0" expanded="false" />
+            <element signature="e#752#760#0" expanded="true" />
             <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
           </folding>
         </state>
@@ -878,20 +1003,20 @@
             <element signature="n#!!block;n#addNewChannel#0" expanded="false" />
             <element signature="n#!!block;n#getMsgFromServer#0" expanded="false" />
             <element signature="n#!!block;n#handleAlert#0" expanded="false" />
-            <element signature="e#1524#1577#0" expanded="false" />
+            <element signature="e#1586#1639#0" expanded="false" />
             <element signature="n#!!block;n#login#0" expanded="false" />
             <element signature="n#!!block;n#say#0" expanded="false" />
             <element signature="n#!!block;n#newchannel#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#joinChannel#0" expanded="false" />
             <element signature="n#!!block;n#channelButton#0" expanded="false" />
-            <element signature="e#3356#3377#0" expanded="false" />
-            <element signature="e#3415#3445#0" expanded="false" />
-            <element signature="e#3479#3571#0" expanded="false" />
-            <element signature="e#3660#3701#0" expanded="false" />
-            <element signature="e#3815#3889#0" expanded="false" />
-            <element signature="e#3995#4042#0" expanded="false" />
-            <element signature="e#4166#4242#0" expanded="false" />
+            <element signature="e#3512#3533#0" expanded="false" />
+            <element signature="e#3571#3601#0" expanded="false" />
+            <element signature="e#3635#3727#0" expanded="false" />
+            <element signature="e#3816#3857#0" expanded="false" />
+            <element signature="e#3971#4045#0" expanded="false" />
+            <element signature="e#4151#4198#0" expanded="false" />
+            <element signature="e#4322#4398#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -909,12 +1034,7 @@
         <state relative-caret-position="522">
           <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
           <folding>
-            <element signature="e#623#632#0" expanded="true" />
-            <element signature="method#narrowcast#0;class#Chat#0" expanded="false" />
-            <element signature="method#login#0;class#Chat#0" expanded="false" />
-            <element signature="method#logout#0;class#Chat#0" expanded="false" />
-            <element signature="class#3095:3717" expanded="false" />
-            <element signature="method#newChannel#0;class#Chat#0" expanded="false" />
+            <element signature="e#752#760#0" expanded="true" />
             <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
           </folding>
         </state>
@@ -930,20 +1050,20 @@
             <element signature="n#!!block;n#addNewChannel#0" expanded="false" />
             <element signature="n#!!block;n#getMsgFromServer#0" expanded="false" />
             <element signature="n#!!block;n#handleAlert#0" expanded="false" />
-            <element signature="e#1524#1577#0" expanded="false" />
+            <element signature="e#1586#1639#0" expanded="false" />
             <element signature="n#!!block;n#login#0" expanded="false" />
             <element signature="n#!!block;n#say#0" expanded="false" />
             <element signature="n#!!block;n#newchannel#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#joinChannel#0" expanded="false" />
             <element signature="n#!!block;n#channelButton#0" expanded="false" />
-            <element signature="e#3356#3377#0" expanded="false" />
-            <element signature="e#3415#3445#0" expanded="false" />
-            <element signature="e#3479#3571#0" expanded="false" />
-            <element signature="e#3660#3701#0" expanded="false" />
-            <element signature="e#3815#3889#0" expanded="false" />
-            <element signature="e#3995#4042#0" expanded="false" />
-            <element signature="e#4166#4242#0" expanded="false" />
+            <element signature="e#3512#3533#0" expanded="false" />
+            <element signature="e#3571#3601#0" expanded="false" />
+            <element signature="e#3635#3727#0" expanded="false" />
+            <element signature="e#3816#3857#0" expanded="false" />
+            <element signature="e#3971#4045#0" expanded="false" />
+            <element signature="e#4151#4198#0" expanded="false" />
+            <element signature="e#4322#4398#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -964,87 +1084,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ChatBot.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="33" lean-forward="false" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        <state relative-caret-position="528">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+        <state relative-caret-position="66">
+          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/IChannelBot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state relative-caret-position="220">
+          <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ABot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
+        <state relative-caret-position="38">
           <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding>
-            <element signature="n#!!block;n#message#0" expanded="false" />
             <element signature="n#!!block;n#addNewUser#0" expanded="false" />
             <element signature="n#!!block;n#addNewChannel#0" expanded="false" />
             <element signature="n#!!block;n#getMsgFromServer#0" expanded="false" />
-            <element signature="n#!!block;n#handleAlert#0" expanded="false" />
-            <element signature="e#1524#1577#0" expanded="false" />
             <element signature="n#!!block;n#login#0" expanded="false" />
             <element signature="n#!!block;n#say#0" expanded="false" />
             <element signature="n#!!block;n#newchannel#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#joinChannel#0" expanded="false" />
             <element signature="n#!!block;n#channelButton#0" expanded="false" />
-            <element signature="e#3356#3377#0" expanded="false" />
-            <element signature="e#3415#3445#0" expanded="false" />
-            <element signature="e#3479#3571#0" expanded="false" />
-            <element signature="e#3660#3701#0" expanded="false" />
-            <element signature="e#3815#3889#0" expanded="false" />
-            <element signature="e#3995#4042#0" expanded="false" />
-            <element signature="e#4166#4242#0" expanded="false" />
+            <element signature="e#3512#3533#0" expanded="false" />
+            <element signature="e#3571#3601#0" expanded="false" />
+            <element signature="e#3635#3727#0" expanded="false" />
+            <element signature="e#3816#3857#0" expanded="false" />
+            <element signature="e#3971#4045#0" expanded="false" />
+            <element signature="e#4151#4198#0" expanded="false" />
+            <element signature="e#4322#4398#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="32" column="90" lean-forward="false" selection-start-line="32" selection-start-column="90" selection-end-line="32" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1078#1079#0" expanded="true" />
+            <element signature="e#1109#1110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SocketHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
+        <state relative-caret-position="716">
+          <caret line="41" column="43" lean-forward="false" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Chat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="85" column="23" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="23" />
-          <folding>
-            <element signature="e#623#632#0" expanded="true" />
-            <element signature="method#narrowcast#0;class#Chat#0" expanded="false" />
-            <element signature="method#login#0;class#Chat#0" expanded="false" />
-            <element signature="method#logout#0;class#Chat#0" expanded="false" />
-            <element signature="class#3095:3717" expanded="false" />
-            <element signature="method#newChannel#0;class#Chat#0" expanded="false" />
-            <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Channel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="51" column="46" lean-forward="false" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="572">
+          <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+          <folding>
+            <element signature="e#752#760#0" expanded="true" />
+            <element signature="method#jsonMessage#0;class#Chat#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

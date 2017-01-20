@@ -32,7 +32,7 @@ public class SocketHandler {
             if (action.equals("login")) {
                 Chat.login(session, json.getString("argument"));
             } else if(action.equals("say")){
-                Chat.say(session, json.getString("argument"));
+                Chat.find(session).say(message);
             } else if(action.equals("newchannel")){
                 Chat.newChannel(session, json.getString("argument"));
             } else if(action.equals("joinchannel")){
