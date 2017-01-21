@@ -6,8 +6,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
@@ -34,13 +35,14 @@ public class WeatherStrategy implements ResponseStrategy {
                     JsonObject weatherJson=jsonFromURL(urlBuilder(city));
                     JsonObject main=weatherJson.getAsJsonObject("main");
                     JsonObject wthr=weatherJson.getAsJsonArray("weather").get(0).getAsJsonObject();
+                    NumberFormat formatter =new DecimalFormat("#0.00");
 
                     double temperature=main.get("temp").getAsDouble()-273;
                     double pressure=main.get("pressure").getAsDouble();
                     answer+=" weather in "+city+":\n";
                     answer+="type: "+wthr.get("description")+"\n";
-                    answer+="temperature: "+Double.toString(temperature)+" degrees Celsius\n";
-                    answer+="pressure: "+Double.toString(pressure)+" hPa";
+                    answer+="temperature: "+formatter.format(temperature)+" degrees Celsius\n";
+                    answer+="pressure: "+ formatter.format(pressure)+" hPa";
 
                 }catch (ArrayIndexOutOfBoundsException e){
                     answer+="you must specify the name of the city after 'weather' command!";
