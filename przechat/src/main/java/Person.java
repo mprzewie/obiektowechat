@@ -43,11 +43,14 @@ public class Person extends Observable implements Observer {
     }
 
     public void narrowcast(String msg){
-        try {
-            session.getRemote().sendString(msg);
-        } catch (IOException e) {
-            e.printStackTrace();
+        synchronized (session.getRemote()){
+            try {
+                session.getRemote().sendString(msg);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
     public String toString(){
@@ -56,7 +59,6 @@ public class Person extends Observable implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        Person thisPointer=this;
         new Thread(new Runnable() {
             @Override
             public void run() {

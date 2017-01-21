@@ -14,12 +14,11 @@ public class Channel extends Observable implements Observer{
         this.name = name;
     }
 
-    public void addUser(Person user, Chat chat) {
+    public void addUser(Person user) {
         if (!isObservedBy(user)) {
-            chat.channels.parallelStream().filter(ch ->!ch.equals(this) && ch.isObservedBy(user)).forEach(ch -> ch.removeUser(user));
+            //chat.channels.parallelStream().filter(ch ->!ch.equals(this) && ch.isObservedBy(user)).forEach(ch -> ch.removeUser(user));
             addObserver(user);
             user.addObserver(this);
-            addObserver(user);
             setChanged();
             notifyObservers(Util.jsonMessage
                     (user.getUsername(), "joinchannel", name).toString());

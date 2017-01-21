@@ -43,7 +43,7 @@ public class Chat {
             JSONObject lists=new JSONObject();
             try{
                 lists.put("users",jsonUsersList());
-                lists.put("channels",jsonUsersList());
+                lists.put("channels",jsonChannelsList());
             } catch (JSONException e){
                 e.printStackTrace();
             }
@@ -73,9 +73,9 @@ public class Chat {
                             .toString());
         }else{
             Channel channel=new Channel(channelName);
-            channel.addUser(person, this);
             channels.add(channel);
             channel.addBot(new Bot(new WeatherStrategy()));
+            joinChannel(session,channelName);
             people.parallelStream().forEach(p -> p.narrowcast(
                     Util.jsonMessage(person.getUsername(), "newchannel", channelName).toString()));
         }
@@ -84,8 +84,12 @@ public class Chat {
 
     synchronized void joinChannel(Session session, String channelName){
         System.out.println(channelName);
-        channels.parallelStream().filter(ch -> ch.getName().equals(channelName)).findFirst().
-                    ifPresent(chan -> chan.addUser(find(session), this));
+        channels.parallelStream().
+                filter(ch -> !ch.getName().equals(channelName)).// && ch.isObservedBy(person)).
+                forEach(ch -> ch.removeUser(find(session)));
+        channels.parallelStream().
+                filter(ch -> ch.getName().equals(channelName)).findFirst().
+                    ifPresent(chan -> chan.addUser(find(session)));
     }
 
     public Person find(Session session) throws NoSuchElementException{
