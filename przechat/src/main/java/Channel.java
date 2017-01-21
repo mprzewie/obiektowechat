@@ -1,7 +1,5 @@
-import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -11,21 +9,19 @@ import java.util.Observer;
 @WebSocket
 public class Channel extends Observable implements Observer{
     private final String name;
-//    private ArrayList<Person> users;
-//    private IChannelBot bot;
 
     public Channel(String name) {
         this.name = name;
     }
 
-    public void addUser(Person user) {
+    public void addUser(Person user, Chat chat) {
         if (!isObservedBy(user)) {
-            Chat.channels.parallelStream().filter(ch ->!ch.equals(this) && ch.isObservedBy(user)).forEach(ch -> ch.removeUser(user));
+            chat.channels.parallelStream().filter(ch ->!ch.equals(this) && ch.isObservedBy(user)).forEach(ch -> ch.removeUser(user));
             addObserver(user);
             user.addObserver(this);
             addObserver(user);
             setChanged();
-            notifyObservers(Chat.jsonMessage
+            notifyObservers(Util.jsonMessage
                     (user.getUsername(), "joinchannel", name).toString());
             System.out.println(user.getUsername()+" joins: "+name);
         }
@@ -34,14 +30,18 @@ public class Channel extends Observable implements Observer{
     public void removeUser(Person user){
         user.deleteObserver(this);
         deleteObserver(user);
-        notifyObservers(Chat.jsonMessage(user.getUsername(),"exitchannel", name).toString());
+        notifyObservers(Util.jsonMessage(user.getUsername(),"exitchannel", name).toString());
         System.out.println(user.getUsername()+" quits: "+name);
     }
 
-   public String getName() {
+    public String getName() {
         return name;
     }
 
+    public void addBot(Bot bot){
+        bot.addObserver(this);
+        addObserver(bot);
+    }
 
     @Override
     public void update(Observable o, Object arg) {

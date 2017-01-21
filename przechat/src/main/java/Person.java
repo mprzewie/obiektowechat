@@ -3,6 +3,7 @@ import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -27,10 +28,8 @@ public class Person extends Observable implements Observer {
     }
 
     public void say(String msg){
-
         if(countObservers()==0){
-
-            Chat.narrowcast(this,Chat.jsonMessage(username,"alert","noChannel").toString());
+            narrowcast(Util.jsonMessage(username,"alert","noChannel").toString());
         }
         try {
             JSONObject jsonMessage=new JSONObject(msg);
@@ -43,12 +42,27 @@ public class Person extends Observable implements Observer {
 
     }
 
+    public void narrowcast(String msg){
+        try {
+            session.getRemote().sendString(msg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public String toString(){
         return username;
     }
+
     @Override
     public void update(Observable o, Object arg) {
-        String message=(String) arg;
-        Chat.narrowcast(this, message);
+        Person thisPointer=this;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String message=(String) arg;
+                narrowcast(message);
+            }
+        }).start();
     }
 }
