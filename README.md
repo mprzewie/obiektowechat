@@ -1,4 +1,4 @@
-# obiektowechat
+# przechat
 
 A simple webchat app written in Java and Javascript using Spark framework.
 <br>
