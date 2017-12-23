@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property
+                name="connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+        <property
+                name="connection.url">jdbc:derby://127.0.0.1/IPrzewiezlikowskiJPAPractice</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">create</property>
+        <!--<property name="hbm2ddl.auto">update</property>-->
+        <mapping class="shopping.Product"/>
+        <mapping class="shopping.Supplier"/>
+        <mapping class="shopping.Category"/>
+        <!--<mapping class="shopping.Order"/>-->
+        <!--<mapping class="shopping.ProductOrder"/>-->
+
+
+    </session-factory>
+</hibernate-configuration>

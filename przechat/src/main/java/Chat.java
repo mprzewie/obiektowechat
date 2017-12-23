@@ -75,6 +75,8 @@ public class Chat {
             Channel channel=new Channel(channelName);
             channels.add(channel);
             channel.addBot(new Bot(new WeatherStrategy()));
+            channel.addBot(new Bot(new OrderingStrategy()));
+            channel.addBot(new Bot(new SupplyingStrategy()));
             joinChannel(session,channelName);
             people.parallelStream().forEach(p -> p.narrowcast(
                     Util.jsonMessage(person.getUsername(), "newchannel", channelName).toString()));
