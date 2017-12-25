@@ -14,8 +14,9 @@
         <mapping class="shopping.Product"/>
         <mapping class="shopping.Supplier"/>
         <mapping class="shopping.Category"/>
-        <!--<mapping class="shopping.Order"/>-->
-        <!--<mapping class="shopping.ProductOrder"/>-->
+        <mapping class="shopping.ProductOrder"/>
+        <mapping class="shopping.ShopUser"/>
+
 
 
     </session-factory>

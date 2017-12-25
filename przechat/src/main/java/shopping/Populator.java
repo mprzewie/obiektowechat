@@ -21,6 +21,7 @@ public class Populator{
         product2.setCategory(category2);
 
         supplier.addProduct(product);
+        ShopUser user = new ShopUser("user");
         SessionFactory sessionFactory = getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
@@ -30,6 +31,7 @@ public class Populator{
         session.save(product);
         session.save(category);
         session.save(category2);
+        session.save(user);
 //        Product foundStudent = session.get(Product.class,1);
 //        System.out.println(foundStudent.getProductName());
         tx.commit();

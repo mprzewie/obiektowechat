@@ -27,7 +27,7 @@ public class SupplyingStrategy implements ResponseStrategy{
             String answer = "";
             StringBuilder builder = new StringBuilder();
 
-            if(message[0].equals("register")){
+            if(message[0].equals("supregister")){
                 try{
                     Supplier supplier = registerSupplier(userName, message[1], message[2]);
                     builder
@@ -41,6 +41,15 @@ public class SupplyingStrategy implements ResponseStrategy{
                     builder.append("Unable to register. Please provide street and city!");
                 }
                 answer = builder.toString();
+            } else if(message[0].equals("login")){
+                Optional<Supplier> supplier = loginSupplier(userName);
+                if(supplier.isPresent()){
+                    answer = "You have been logged in as " + userName;
+                } else {
+                    answer = "You must register with supregister first!";
+                }
+            } else if(message[0].equals("supply")){
+
             }
 
             if(answer.equals("")){
@@ -57,7 +66,7 @@ public class SupplyingStrategy implements ResponseStrategy{
     private Supplier registerSupplier(String companyName, String street, String city){
         Transaction tx = session.beginTransaction();
             Supplier supplier =
-                    session.createQuery(String.format("from Supplier", companyName), Supplier.class)
+                    session.createQuery("from Supplier", Supplier.class)
                             .getResultList()
                             .stream()
                             .filter(s -> s.getCompanyName().equals(companyName))
@@ -67,7 +76,17 @@ public class SupplyingStrategy implements ResponseStrategy{
             supplier.setCity(city);
             supplier.setStreet(street);
             session.save(supplier);
+            tx.commit();
             return supplier;
 
+    }
+
+    private Optional<Supplier> loginSupplier(String companyName){
+
+        return session.createQuery("from Supplier", Supplier.class)
+                        .getResultList()
+                        .stream()
+                        .filter(s -> s.getCompanyName().equals(companyName))
+                        .findFirst();
     }
 }

@@ -18,19 +18,16 @@ public class Bot extends Observable implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    JSONObject action = new JSONObject((String) arg);
-                    JSONObject response = strategy.response(action);
-                    if (response != null) {
-                        setChanged();
-                        notifyObservers(response.toString());
-                    }
-                }catch (JSONException e){
-                    e.printStackTrace();
+        new Thread(() -> {
+            try{
+                JSONObject action = new JSONObject((String) arg);
+                JSONObject response = strategy.response(action);
+                if (response != null) {
+                    setChanged();
+                    notifyObservers(response.toString());
                 }
+            }catch (JSONException e){
+                e.printStackTrace();
             }
         }).start();
     }

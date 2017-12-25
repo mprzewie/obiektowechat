@@ -15,6 +15,8 @@ public class Product {
     @NotNull
     private String productName;
 
+
+
     @NotNull
     private int unitsInStock;
 
@@ -45,5 +47,9 @@ public class Product {
 
     public int getUnitsInStock() {
         return unitsInStock;
+    }
+
+    public void setUnitsInStock(int unitsInStock) {
+        this.unitsInStock = unitsInStock;
     }
 }
